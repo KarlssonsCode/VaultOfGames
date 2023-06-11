@@ -1,0 +1,58 @@
+﻿@page
+@model VaultOfGames.Pages.VogReviewsModel
+@{
+}
+<div class="row">
+
+    <div class="row" id="reviews">
+        @if (Model.VogReview != null)
+        {
+            <div>
+                <img style="height: 400px" src="@Model.VogReview.Image"/>
+                <h3>@Model.VogReview.GameTitle</h3>
+            </div>
+                <p>@Model.VogReview.ReviewDescription</p>
+                <h2>VogScore: @Model.VogReview.VogScore</h2>
+            <hr />
+
+            <form method="post" enctype="multipart/form-data">
+
+                <label asp-for="UserReview.UserReviewDescription" class="form-label"></label>
+                <textarea asp-for="UserReview.UserReviewDescription" class="form-control" cols="40" rows="5"></textarea>
+
+                <label asp-for="UserReview.UserScore" class="form-label"></label>
+                <input asp-for="UserReview.UserScore" class="form-control" />
+
+                <br>
+                @*<input type="submit" class="btn btn-success" value="Post Review">*@
+                <hr>
+            </form>
+        }
+        else
+        {
+            @foreach (var vogReview in Model.VogReviews)
+            {
+                <div class="card m-2" style="width: 18rem">
+                    <img class="card-img-top" src="~/img/@vogReview.Image">
+                    <div class="card-body">
+                        <h3 class="card-title">@vogReview.ReviewTitle</h3>
+                        <hr>
+                        <h4 class="card-title">@vogReview.GameTitle</h4>                        
+
+                    </div>
+                    <a asp-route-showid="@vogReview.Id" class="card-footer">Read Review</a>
+
+
+                </div>
+            }
+        }
+    </div>
+
+
+
+
+
+
+</div>
+
+

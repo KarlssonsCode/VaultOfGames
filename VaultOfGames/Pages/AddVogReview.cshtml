@@ -1,0 +1,49 @@
+﻿@page
+@model VaultOfGames.Pages.AddVogReviewModel
+@{
+}
+
+<form method="post" enctype="multipart/form-data">
+    <label asp-for="VogReview.GameTitle" class="form-label"></label>
+    <br />
+    <select asp-for="VogReview.GameTitle">
+        @if (Model.Games != null)
+        {
+            @foreach (var game in Model.Games)
+            {
+                <option value="@game.GameTitle">@game.GameTitle</option>
+            }
+        }
+        else
+        {
+            <input asp-for="VogReview.ReviewTitle" class="form-control" />          
+        }
+
+        
+
+    </select>
+
+    <br />
+
+    <label asp-for="VogReview.ReviewTitle" class="form-label"></label>
+    <input asp-for="VogReview.ReviewTitle" class="form-control" />
+
+    <br />
+
+    <label asp-for="VogReview.ReviewDescription" class="form-label"></label>
+    <textarea asp-for="VogReview.ReviewDescription" class="form-control" cols="40" rows="5"></textarea>
+
+    <br />
+
+    <label asp-for="VogReview.VogScore" class="form-label"></label>
+    <input asp-for="VogReview.VogScore" class="form-control" />
+
+    <br />
+
+    <label asp-for="VogReview.Image" class="form-label"></label>
+    <input type="file" class="form-control" name="UploadedImage">
+
+    <br />
+    <hr>
+    <input type="submit" class="btn btn-success" value="Post Review">
+</form>

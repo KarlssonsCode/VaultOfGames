@@ -1,0 +1,27 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+
+<div class="text-center">
+    @if (Model.VogUser != null)
+    {
+        <h1 class="display-4">Welcome @Model.VogUser.NickName</h1>
+    }
+    <h1>This is Vault of games!</h1>
+    <p>My goal for this site is for users to be able to see scores from me (Douglas)</p>
+    <p>All games are scored on a 1-100 score, i think scored reviews are quite bad when it comes to big gaming news sites but when it comes from one indepent reviewer
+        i think it can hold somekind of value.
+    </p>
+    <p>I much prefer the way that for example SkillUp does it, he reviews them just based on if he recommends the game or not.</p>
+    <br />
+    <br />
+    <br />
+
+    <div class="card">
+        <img class="card-img bg-dark" src="~/img/vaultofgameslogo6.png" style="padding: 10px"/>
+    </div>
+    
+
+</div>
